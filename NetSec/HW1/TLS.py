@@ -16,8 +16,10 @@ def create_ssl_server():
 
     # Load the server's certificate and private key into the SSL context
     # key.pem is the server's private key, cert.pem contains the public key (certificate)
-    context.load_cert_chain(certfile="c:/Users/Pc Dayan/Desktop/NetSec/HW1/cert.pem", keyfile="c:/Users/Pc Dayan/Desktop/NetSec/HW1/key.pem")
-
+    context.load_cert_chain(
+    certfile="C:\\Users\\Pc Dayan\\Desktop\\University\\NetSec\\HW1\\cert.pem", 
+    keyfile="C:\\Users\\Pc Dayan\\Desktop\\University\\NetSec\\HW1\\key.pem"
+        )
     #TCP Layer
     # Create a TCP/IP socket
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

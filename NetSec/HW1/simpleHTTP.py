@@ -11,7 +11,7 @@ class SimpleHandler(BaseHTTPRequestHandler):
         self.send_header("Content-type", "text/html; charset=utf-8")
         self.end_headers()
 
-        self.wfile.write(b"UNENCRYPTED TEXT!")
+        self.wfile.write(b"THIS IS AN UNENCRYPTED TEXT!")
 
 
 # This ensures that the code following the if __name__ == "__main__": block is only executed when the file is run directly, not when it is imported as a module in another file.
