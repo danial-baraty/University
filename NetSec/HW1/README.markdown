@@ -11,7 +11,7 @@ These servers simply output a basic message to the client upon receiving a reque
 
 Before generating certificate files, make sure OpenSSL is installed on your system. You can download OpenSSL for Windows from the following trusted source:
 
-- [Win32/Win64 OpenSSL Installer by Shining Light Productions](https://slproweb.com/products/Win32OpenSSL.html)[](https://slproweb.com/products/Win32OpenSSL.html)
+- [Win32/Win64 OpenSSL Installer by Shining Light Productions](https://slproweb.com/products/Win32OpenSSL.html)
 
 To generate the SSL certificate and private key, run the following command in Git Bash or your terminal:
 
@@ -20,6 +20,8 @@ openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout key.pem -out ce
 ```
 
 ## Testing the Servers
+
+Browsers are generally not suitable for sending requests to these servers due to security restrictions. They often block or warn against HTTP requests on non-standard ports and HTTPS requests with self-signed certificates. It's recommended to use command-line tools like `curl` in Git Bash or a terminal for testing.
 
 After running the servers, you can send requests to them using `curl` from Git Bash or your terminal.
 
@@ -30,7 +32,7 @@ After running the servers, you can send requests to them using `curl` from Git B
 
 - For the HTTPS server (running on port 8443):
   ```bash
-  curl -k https://localhost:8443
+  curl https://localhost:8443
   ```
 
 You can use these commands to test the servers after starting them. The servers will respond with a simple message displayed in the client output.
