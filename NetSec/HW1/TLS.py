@@ -5,6 +5,7 @@
 
 import ssl
 import socket
+from pathlib import Path
 
 def create_ssl_server():
     # SSL Layer
@@ -14,11 +15,16 @@ def create_ssl_server():
     # Create an SSL context with the purpose of client authentication (though it's not enforced here)
     context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
 
+    base_dir = Path(__file__).resolve().parent # Returns the directory where the current Python script is located
+
+    cert_path = base_dir / "cert.pem"
+    key_path = base_dir / "key.pem"
+
     # Load the server's certificate and private key into the SSL context
     # key.pem is the server's private key, cert.pem contains the public key (certificate)
     context.load_cert_chain(
-    certfile="C:\\Users\\Pc Dayan\\Desktop\\University\\NetSec\\HW1\\cert.pem", 
-    keyfile="C:\\Users\\Pc Dayan\\Desktop\\University\\NetSec\\HW1\\key.pem"
+    certfile=cert_path, 
+    keyfile=key_path
         )
     #TCP Layer
     # Create a TCP/IP socket
